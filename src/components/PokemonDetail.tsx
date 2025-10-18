@@ -2,9 +2,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { fetchPokemonDetail } from '../api/pokemonDetail';
-import PokemonTypeLabel from '../components/PokemonTypeLabel';
-import { apiQueryKeys } from '../queryKeys';
+import { fetchPokemonDetail } from '../api/PokemonDetail';
+import { apiQueryKeys } from '../querykeys';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -117,5 +116,29 @@ const PokemonDetailSkeleton: React.FC = () => {
   );
 };
 
-export default PokemonDetail;
+const PokemonTypeLabel: React.FC<{ type: string }> = ({ type }) => {
+  const colorMap: Record<string, string> = {
+    Fire: 'bg-red-500',
+    Water: 'bg-blue-500',
+    Grass: 'bg-green-500',
+    Electric: 'bg-yellow-400',
+    Psychic: 'bg-pink-500',
+    Ice: 'bg-teal-300',
+    Rock: 'bg-gray-500',
+    Ground: 'bg-yellow-700',
+    Normal: 'bg-gray-400',
+    Fighting: 'bg-orange-600',
+    Ghost: 'bg-indigo-800',
+    Dark: 'bg-gray-900',
+    Steel: 'bg-slate-400',
+    Fairy: 'bg-pink-300',
+    Poison: 'bg-purple-600',
+    Bug: 'bg-lime-600',
+    Dragon: 'bg-indigo-600',
+    Flying: 'bg-sky-300',
+  };
+  const bgClass = colorMap[type] ?? 'bg-gray-300';
+  return <span className={`px-2 py-1 rounded text-white ${bgClass}`}>{type}</span>;
+};
 
+export default PokemonDetail;

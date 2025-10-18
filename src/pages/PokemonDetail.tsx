@@ -1,9 +1,10 @@
 // src/pages/PokemonDetail.tsx
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';import { fetchPokemonDetail } from '../api/pokemon'; // 実際のファイルパスに合わせて修正
-import PokemonTypeLabel from '../components/PokemonTypeLabel';
-import { apiQueryKeys } from '../constants/queryKeys';
+import { Link, useParams } from 'react-router-dom';
+import { fetchPokemonDetail } from '../api/PokemonDetail';
+import PokemonTypeLabel from '../components/PokemonTyLabe';
+import { apiQueryKeys } from '../querykeys';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
