@@ -32,7 +32,7 @@ jobs:
       - name: Build
         run: npm ci && npm run build
         env:
-          PUBLIC_URL: /react-pokemon-zukan
+          PUBLIC_URL: /oono25/eact-pokemon-zukan
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
